@@ -1,0 +1,18 @@
+weapons: [
+        { 
+            name: "Wood Sword",
+            hit: 1 
+        },
+        { 
+            name: "Iron Sword",
+            hit: 2 
+        },
+        { 
+            name: "Gold Sword",
+            hit: 3 
+        },
+        { 
+            name: "Diomond Sword",
+            hit: 5
+        }
+    ]

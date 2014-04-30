@@ -1,0 +1,18 @@
+monsters: [
+        {
+            name: "Skeleton",
+            life: 1
+        },
+        {
+            name: "Zombie",
+            life: 2
+        },
+        {
+            name: "Golumn",
+            life: 5
+        },
+        {
+            name: "Boogie Man",
+            life: 3
+        }
+    ]
