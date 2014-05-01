@@ -27,6 +27,7 @@ function logical() {
         }
     }
 };
+
 /**
  * Uses the thefight form to look up values for the monsters and weapons drop down and
  * display a message about whether or not you win or lose.
