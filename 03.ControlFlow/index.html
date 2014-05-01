@@ -5,28 +5,47 @@
         </title>
     </head>
     <body>
+        <div>
+            <h1>Logic Practice</h1>
+            <select id="leftside" onchange="logical()">
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+            <select id="logic" onchange="logical()">
+                <option value="and">And</option>
+                <option value="or">Or</option>
+            </select>
+            <select id="rightside" onchange="logical()">
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+            <br/>
+            <div id="display">
+                <a href="#" onclick="logical()">?</a>
+            </div>
+        </div>
         <form id="thefight" action="javascript:fight()">
+            <h1>Monster Fight</h1>
             <div id="choices">
                 <div id="theweapons">
-                    <ul>
-                        <input type="radio" name="weapon" value="wooden sword">Woodend Sword</input><br/>
-                        <input type="radio" name="weapon" value="iron sword">Iron Sword</input><br/>
-                        <input type="radio" name="weapon" value="vorpal blade">Vorpal Blade</input><br/>
-                    </ul>
+                    <select id="weapon" name="weapon">
+                        <option value="wooden sword">Woodend Sword</option>
+                        <option value="iron sword">Iron Sword</option>
+                        <option value="vorpal blade">Vorpal Blade</option>
+                    </select>
                 </div>
                 <div id="themonsters">
-                    <ul>
-                        <input type="radio" name="monsters" value="Goblin">Goblin</input><br/>
-                        <input type="radio" name="monsters" value="Zombie">Zombie</input><br/>
-                        <input type="radio" name="monsters" value="Zomblin">Zomblin</input><br/>
-                    </ul>
+                    <select name="monsters" id="monsters">
+                        <option value="Goblin">Goblin</option>
+                        <option value="Zombie">Zombie</option>
+                        <option value="Zomblin">Zomblin</option>
+                    </select>
                 </div>
             </div>
+            <br/>
             <div id="results">
             </div>
-            <div id="button">
-                <input type="submit" name="fight"></input>
-            </div>
+            <button name="fight" value="submit">Fight!</input>
         </form>
         <script src="../shared.js"></script>
         <script src="script.js"></script>
