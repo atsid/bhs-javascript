@@ -12,7 +12,7 @@ weapons: [
             hit: 3 
         },
         { 
-            name: "Diomond Sword",
+            name: "Diamond Sword",
             hit: 5
         }
     ]

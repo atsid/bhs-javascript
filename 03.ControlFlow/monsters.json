@@ -8,7 +8,7 @@ monsters: [
             life: 2
         },
         {
-            name: "Golumn",
+            name: "Golum",
             life: 5
         },
         {
