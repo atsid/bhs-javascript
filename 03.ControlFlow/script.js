@@ -1,33 +1,4 @@
 /**
-* This function is called by the ? link or the logic practice drop downs and uses the values
-* of the dropdowns to determine whether or not to display a True or False message
-* in the display area.
-* **/
-function logical() {
-    var display = document.getElementById('display');
-    var logic = document.getElementById('logic');
-    var leftSide = document.getElementById('leftside');
-    var rightSide = document.getElementById('rightside');
-    display.innerHTML = "<span>" + 
-        leftSide.value + " " + 
-        logic.value + " " + 
-        rightSide.value + "<span> ";
-    
-    if (logic.value === 'and') {
-        if (leftSide.value === 'true' && rightSide.value === 'true') {
-            display.innerHTML += "<span>is True</span>";
-        } else {
-            display.innerHTML += "<span>is False</span>";
-        }
-    } else {
-        if (leftSide.value === 'true' || rightSide.value === 'true') {
-            display.innerHTML += "<span>is True</span>";
-        } else {
-            display.innerHTML += "<span>is False</span>";
-        }
-    }
-};
-/**
  * Uses the thefight form to look up values for the monsters and weapons drop down and
  * display a message about whether or not you win or lose.
  * **/
