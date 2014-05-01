@@ -40,14 +40,22 @@ function fight() {
     results.innerHTML = "<p>You fought a " + monster + " with a " + weapon + "</p>"
     
     // change the logic here so that the vorpal blade always wins, and the zombie always dies
-    
-    if (weapon === 'wooden sword' && monster === 'Zombie') {
-        results.innerHTML += "<h3>You Win!</h3>"
-    } else if (weapon === 'iron sword' && monster === 'Goblin') {
-        results.innerHTML += "<h3>You Win!</h3>"
-    } else if (weapon === 'vorpal blade' && monster === 'Zomblin') {
+    var fightResult = resolveFight(weapon, monster);
+    if (fightResult) {
         results.innerHTML += "<h3>You Win!</h3>"
     } else {
-        results.innerHTML += "<h3>You have perished</h3>"
+        results.innerHTML += "<h3>You have perished :-(</h3>"
     }
 };
+
+function resolveFight(weapon, monster) {
+    if (weapon === 'wooden sword' && monster === 'Zombie') {
+        return true;
+    } else if (weapon === 'iron sword' && monster === 'Goblin') {
+        return true;
+    } else if (weapon === 'vorpal blade' && monster === 'Zomblin') {
+        return true;
+    } else {
+        return false;
+    }
+}
