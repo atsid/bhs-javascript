@@ -93,6 +93,16 @@
         goldScore.innerHTML = player1.gold;
     }
 
+    function getGold(xPos, yPos) {
+        player1.gold+=10;
+        map[yPos][xPos] = '.';        
+    }
+    
+    function doMovement(xPos, yPos) {
+        player1.x = xPos;
+        player1.y = yPos;
+    }
+
     function movePlayer1(xPos, yPos) {
 
         // make sure the new Y position is inside of the map.
@@ -108,10 +118,12 @@
                 // If it is a wall, we'll just do nothing. If it isn't a wall, then we'll update
                 // the player's position and redraw the map.
                 if (tileChar !== "#") {
-                    player1.x = xPos;
-                    player1.y = yPos;
+                    
+                    // Add code here that will call the getGold(xPos, yPos) funcion
+                    // if the titleChar is equal to G
+                    
+                    doMovement(xPos, yPos);
                     drawWorld();
-
                 } // end wall check
             } // end x check
         } // end y check
