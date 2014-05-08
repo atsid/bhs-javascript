@@ -20,10 +20,7 @@ function init() {
 
 function getRandomDamage(max) {
     var damage = Math.ceil((Math.random() * 10)) % max;
-    
-    if (damage <= 0) {
-        damage = 1;
-    }
+    damage++; // no 0 damage
     
     return damage;
 };
@@ -33,21 +30,21 @@ function block(chance) {
 };
 
 function getWeaponDamage(weapon) {
-    if (weapon === 'Wooden Sword') {
+    if (weapon === weapons[0]) {
+        return 1;
+    } else if (weapon === weapons[1]) {
         return getRandomDamage(3);
-    } else if (weapon === 'Iron Sword') {
-        return getRandomDamage(4);
-    } else if (weapon === 'Vorpal Blade') {
-        return getRandomDamage(6);
+    } else if (weapon === weapons[2]) {
+        return getRandomDamage(5);
     }
 };
 
 function getMonsterDamage(monster) {
-    if (monster == 'Zombie') {
-        return 1;
-    } else if (monster == 'Goblin') {
+    if (monster == monsters[0]) {
+        return getRandomDamage(2);
+    } else if (monster == monsters[1]) {
         return getRandomDamage(3);
-    } else if (monster === 'Zomblin') {
+    } else if (monster === monsters[2]) {
         return getRandomDamage(5);
     }
 };
