@@ -15,3 +15,12 @@ The class is using Cloud9 as an IDE (https://c9.io). In order to get this code i
 Once the workspace is open, you can navigate the files just like on your computer, by opening and closing the folders and double-clicking the files.
 
 To view an HTML file, open it in the editor, and click the "Preview" button along the top. It will open in a panel to the right, which you can reload periodically to see your code how it would look on the Internet.
+
+For getting the most recent lesson you can use the git command on the terminal.
+
+1. View -> Terminals -> New Terminal
+2. Once the terminal loads and give you a command prompt enter the following commands.
+3. git reset --hard <enter>
+4. The workspace will not be back to the way it was prior to any changes that have been made
+4. git pull <enter>
+5. This will get the new changes from the git repo.
