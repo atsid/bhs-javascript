@@ -29,6 +29,11 @@ function block(chance) {
     return (Math.ceil(Math.random() * 1000) % (100 / chance)) == 0;
 };
 
+// TODO: Modify the damage functions so they loop over the weapons until they find the current selected weapon and use the
+// weapons index in the array as part of the argument to the getRandomDamage function. This will mean weapons and monsters
+// with a higher index value will hit harder, and allow more weapons and monsters to be added without the need to change
+// the get damage functions.
+
 function getWeaponDamage(weapon) {
     if (weapon === weapons[0]) {
         return 1;
