@@ -18,34 +18,6 @@ function init() {
     addMonsters();
 };
 
-function addSelectOption(element, text, value) {
-    if (value === undefined) {
-        value = text;
-    }
-    
-    element.innerHTML += "<option value='" + value + "'>" + text + "</option>";
-};
-
-function addWeapons() {
-    var element = document.getElementById('weapons');
-    element.innerHTML = ""; // clear the old values
-    
-    for(var i = 0; i < weapons.length; i++) {
-        var weapon = weapons[i];
-        addSelectOption(element, weapon);
-    }
-}
-
-function addMonsters() {
-    var element = document.getElementById('monsters');
-    element.innerHTML = ""; // clear the old values
-    
-    for(var i = 0; i < monsters.length; i++) {
-        var monster = monsters[i];
-        addSelectOption(element, monster);
-    }
-}
-
 function getRandomDamage(max) {
     var damage = Math.ceil((Math.random() * 10)) % max;
     
@@ -80,6 +52,26 @@ function getMonsterDamage(monster) {
     }
 };
 
+function addWeapons() {
+    var element = document.getElementById('weapons');
+    element.innerHTML = ""; // clear the old values
+    
+    for(var i = 0; i < weapons.length; i++) {
+        var weapon = weapons[i];
+        addSelectOption(element, weapon);
+    }
+}
+
+function addMonsters() {
+    var element = document.getElementById('monsters');
+    element.innerHTML = ""; // clear the old values
+    
+    for(var i = 0; i < monsters.length; i++) {
+        var monster = monsters[i];
+        addSelectOption(element, monster);
+    }
+}
+
 /**
  * Uses the thefight form to look up values for the monsters and weapons drop down and
  * display a message about whether or not you win or lose.
@@ -94,11 +86,11 @@ function fight() {
     monsterHealth = 10;
     results.innerHTML = "<p>You are fighting a " + monster + " with a " + weapon + "</p><br/>"
     
-    // change the logic here so that the vorpal blade always wins, and the zombie always dies
     while(playerHealth > 0 && monsterHealth > 0) {
         var hit = getWeaponDamage(weapon),
             damage = getMonsterDamage(monster);
             
+        // monster has a 25% chance to block
         if (block(25)) {
             results.innerHTML += "<span>The " + monster + " blocked your attack!</span><br/>";
         } else {
@@ -106,6 +98,7 @@ function fight() {
             results.innerHTML += "<span> You hit " + monster + " for " + hit + " damage.</span><br/>";
         }
         
+        // player has a 50% chance to block
         if (block(50)) {
             results.innerHTML += "<span style='color: green'> You block the monsters attack!</span><br/>";   
         } else {
