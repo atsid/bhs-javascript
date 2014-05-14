@@ -13,7 +13,7 @@ var monsters = [
     },
     {
         name: "Zomblin",
-        description: "A rotting animated goblin corse, who loves to eat brains and is tougher than a normal zombie.",
+        description: "A rotting animated goblin corpse, who loves to eat brains and is tougher than a normal zombie.",
         img: "",
         damage: 5
     },
@@ -68,7 +68,7 @@ function init() {
 };
 
 function getRandomDamage(max) {
-    var damage = Math.ceil((Math.random() * 10)) % max;
+    var damage = Math.ceil((Math.random() * 1000)) % max;
     damage++; // no 0 damage
     
     return damage;
