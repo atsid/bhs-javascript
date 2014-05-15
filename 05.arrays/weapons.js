@@ -9,7 +9,7 @@ var weapons = [
     },
     {
         name: "Wooden Sword",
-        description: "A polished stick.",
+        description: "A polished staff made from the ancient elms of the legendary monk-warriors.",
         img: "",
         damage: 1,
         healthBonus: 0,
@@ -17,7 +17,7 @@ var weapons = [
     },
     {
         name: "Iron Sword",
-        description: "Long, sharp and pointy.",
+        description: "This sword is heavy but effective. Stick them with the pointy end.",
         img: "",
         damage: 3,
         healthBonus: 0,
@@ -32,18 +32,26 @@ var weapons = [
         block: 50
     },
     {
+        name: "The Sword of a Thousand Truths",
+        description: "This powerful blue sword was forged by dwarven smith lords and enchanted by long-dead high elves.",
+        img: "",
+        damage: 10,
+        healthBonus: 5,
+        block: 50
+    },
+    {
         name: "Great Hammer",
-        description: "A really nice hammer.",
+        description: "A favorite of dwarves, a warhammer brings skull-collapsing crushing blows.",
         img: "",
         damage: 9,
         healthBonus: 5,
         block: 25
     },
     {
-        name: "Squirt Gun",
-        description: "A pistol that shoots liquid.",
+        name: "Shortbow",
+        description: "A short bow, useful for stealthy mid-range combat.",
         img: "",
-        damage: 9,
+        damage: 8,
         healthBonus: 12,
         block: 0
     }];
