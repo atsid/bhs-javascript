@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Arrays Lesson 2</title>
+    </head>
+    <body>
+        <div id="array" style="font-size: 25px;">
+            <span>[</span>
+            <span id="values"></span>
+            <span>]</span>
+            <br/>
+            <button id="add" name="add" onclick="addNextValue();">add</button>
+        </div>
+        <br/>
+        <div id="index">
+            <span>Get the value at the specified index.</span>
+            <br/>
+            <input id="indexToGet" type="text" size="5"></input>
+            <button id="getIndex" name="getIndex" value="get" onclick="getAtIndex();">get</button>
+            <span id="indexValue"></span>
+        </div>
+        <div id="find">
+            <span>Find the index for the specified value.</span>
+            <br/>
+            <input id="valueToFind" type="text" size="5"></input>
+            <button id="findValue" name="findValue" value="find" onclick="findIndexFor();">find</button>
+            <span id="foundValue"></span>
+        </div>
+        <script src="../shared.js"></script>
+        <script src="array.js"></script>
+        <script>
+            {
+                printArray();
+            }
+        </script>
+    </body>
+</html>
