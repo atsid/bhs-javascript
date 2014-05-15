@@ -1,13 +1,13 @@
 var monsters = [
     {
         name: "Goblin",
-        description: "A very ugly, green and snotty creature with a bad dispostion who likes to eat human children.",
+        description: "A very ugly, green and snotty creature with a bad disposition who likes to eat human children.",
         img: "",
         damage: 2
     },
     {
         name: "Zombie",
-        description: "A rotting animated corpse who want's to eat your brain.",
+        description: "A rotting animated corpse who wants to eat your brain.",
         img: "",
         damage: 1
     },
@@ -27,7 +27,7 @@ var monsters = [
 var weapons = [
     {
         name: "Wooden Sword",
-        description: "",
+        description: "A polished stick.",
         img: "",
         damage: 1
     },
@@ -92,21 +92,23 @@ function getMonsterDamage(index) {
 };
 
 function showWeapon() {
-    var element = document.getElementById('viewWeapon'),
+    var weaponHeader = document.getElementById('viewWeapon'),
+        weaponDetails = document.getElementById('viewWeaponDetails'),
         fight = document.getElementById('thefight'),
         weapon = weapons[fight.weapons.value];
-        
-    element.innerHTML = "<h3>" + weapon.name + "</h3><br/>";
-    element.innerHTML += "<span>" + weapon.description + "</span><br/>";
+
+    weaponHeader.innerHTML = weapon.name;
+    weaponDetails.innerHTML = weapon.description;
 };
 
 function showMonster() {
-    var element = document.getElementById('viewMonster'),
+    var monsterHeader = document.getElementById('viewMonster'),
+        monsterDetails = document.getElementById('viewMonsterDetails'),
         fight = document.getElementById('thefight'),
         monster = monsters[fight.monsters.value];
-        
-    element.innerHTML = "<h3>" + monster.name + "</h3></br>";
-    element.innerHTML += "<span>" + monster.description + "</span><br/>";
+
+    monsterHeader.innerHTML = monster.name;
+    monsterDetails.innerHTML = monster.description;
 };
 
 function addWeapons() {

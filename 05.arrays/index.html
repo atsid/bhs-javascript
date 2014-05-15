@@ -1,36 +1,38 @@
 <html>
     <head>
+        <style>
+            @import url(./style.css);
+        </style>
         <title>
             Monster Fight
         </title>
     </head>
     <body>
         <form id="thefight" action="javascript:fight()">
+
             <h1>Monster Fight</h1>
-            <div id="choices">
-                <div id="theweapons">
-                    <select id="weapons" name="weapons" onchange="showWeapon()">
-                    </select>
-                </div>
-                <div id="themonsters">
-                    <select name="monsters" id="monsters" onchange="showMonster()">
-                    </select>
-                </div>
-            </div>
-            <br/>
+
             <table id="viewStats">
-                <tr>
-                    <td>
-                        <div id="viewMonster"></div>
-                    </td>
-                    <td>
-                        <div id="viewWeapon"></div>
-                    </td>
+                <tr id="headers">
+                    <th id="viewMonster">??</th>
+                    <th id="versus"></th>
+                    <th id="viewWeapon">??</th>
+                </tr>
+                <tr id="details">
+                    <td id="viewMonsterDetails"></td>
+                    <td id="versus2"></td>
+                    <td id="viewWeaponDetails"></td>
                 </tr>
             </table>
-            <button name="fight" value="submit">Fight!</button>
-            <div id="results">
+
+            <div id="choices">
+                <select name="monsters" id="monsters" onchange="showMonster()"></select>
+                <select id="weapons" name="weapons" onchange="showWeapon()"></select>
+                <button name="fight" value="submit">Fight!</button>
             </div>
+
+            <div id="results"></div>
+
         </form>
         <script src="../shared.js"></script>
         <script src="script.js"></script>
