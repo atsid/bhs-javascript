@@ -26,7 +26,7 @@ td, th {
 #versus {
     width: 42px;
     height: 28px;
-    background-image: url(./vs.png);
+    background-image: url(./img/vs.png);
     background-size: 42px 28px;
     background-repeat: no-repeat;
 }
