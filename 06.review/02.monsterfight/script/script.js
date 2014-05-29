@@ -38,7 +38,7 @@ function selectWeapon() {
     if (gameState.canChange()) {
         var fight = document.getElementById('thefight'),
             weapon = weapons[fight.weapons.value],
-            player = createPlayer(gameState.playerStats, weapon);
+            player = new Player(gameState.playerStats, weapon);
             
         gameState.player = player;
         showWeapon(weapon);
@@ -48,7 +48,7 @@ function selectWeapon() {
 function selectMonster() {
     if (gameState.canChange()) {
         var fight = document.getElementById('thefight'),
-            monster = createMonster(monsters[fight.monsters.value]);
+            monster = new Monster(monsters[fight.monsters.value]);
             
         gameState.monster = monster;
         
