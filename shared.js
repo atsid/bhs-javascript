@@ -1,7 +1,15 @@
 //this function lets us easily print messages to the screen, one line at a time
 function print(message) {
     document.body.innerHTML += message + "<br/>";
-};
+}
+
+function hideElement(id) {
+    document.getElementById(id).style.display = "none";
+}
+
+function showElement(id) {
+    document.getElementById(id).style.display = "inline";
+}
 
 function getValueOfInputElement(id) {
     var element = document.getElementById(id);
@@ -10,7 +18,7 @@ function getValueOfInputElement(id) {
     }
     
     throw new Error('cannot get value from element ' + id);
-};
+}
 
 function setInnerHtmlOfElement(id, html) {
     var element = document.getElementById(id);
@@ -29,4 +37,4 @@ function addSelectOption(id, text, value) {
     }
     
     element.innerHTML += "<option value='" + value + "'>" + text + "</option>";
-};
+}
