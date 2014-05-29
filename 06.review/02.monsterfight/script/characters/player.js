@@ -11,6 +11,10 @@ function Player(stats, weapon) {
         
     // returns a player object with access to the data and some functions for applying damage and
     // what not.
+    this.isAlive = function() {
+        return data.health > 0;
+    }
+
     this.getHealth = function() {
         return data.health + data.rightHand.healthBonus;
     }

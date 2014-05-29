@@ -10,6 +10,10 @@ function Monster(stats) {
         
     // Returns a monster object with access to the stats and functions for
     // applying damage and other such neat things!
+    this.isAlive = function() {
+        return monster.health > 0;
+    }
+
     this.getHealth = function() {
         return monster.health;
     }

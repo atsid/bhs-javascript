@@ -29,7 +29,7 @@ var util = {
             }
             
             if (monster.blocked) {
-                element.innerHTML += "<br/><span>Monser blocked the players's attack!</span>";
+                element.innerHTML += "<br/><span>Monster blocked the players's attack!</span>";
             } else {
                 element.innerHTML += "<br/><span>Monster takes " + monster.damage + " damage!</span>";
             }

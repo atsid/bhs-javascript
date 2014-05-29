@@ -30,7 +30,7 @@ var gameState = {
      * Resolves the combat for a round of fighting.
      * */
     fight: function(results) {
-        // TODO: use monster and player health to know if we should continue fighting.
+        // TODO: use monster and player aliveness to know if we should continue fighting.
         if (true) {
             // TODO: use the monster and player objects to get the damage each can do. eg; gameState.monster.getHealth()
             var monsterDamage = 0;
