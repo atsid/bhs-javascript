@@ -8,7 +8,7 @@ function createMonster(stats) {
             name: stats.name
     };
         
-    // Returns a monser object with access to the stats and functions for
+    // Returns a monster object with access to the stats and functions for
     // applying damage and other such neat things!
     return {
         getHealth: function() {

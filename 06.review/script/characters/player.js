@@ -1,5 +1,5 @@
 function createPlayer(stats, weapon) {
-    // this object will be availabel to the returne player object.
+    // this object will be available to the returned player object.
     var data = {
         level: stats.level,
         health: stats.health,
