@@ -31,15 +31,15 @@ var gameState = {
      * */
     fight: function(results) {
         // TODO: use monster and player health to know if we should continue fighting.
-        if (true) {
+        if (gameState.monster.getHealth() > 0 && gameState.player.getHealth() > 0) {
             // TODO: use the monser and player objects to get the damage each can do. eg; gameState.monster.getHealth()
-            var monsterDamage = 0,
-                playerDamage = 0,
+            var monsterDamage = gameState.monster.getDamage(),
+                playerDamage = gameState.player.getDamage(),
                 playerOutcome, monsterOutcome;
         
             // TODO: use the monster and player objects to apply damage and get valid fight outcome
-            playerOutcome = { blocked: false, damage: 0, dead: false };
-            monsterOutcome = { blocked: false, damage: 0, dead: false };
+            playerOutcome = gameState.player.applyDamage(monsterDamage);
+            monsterOutcome = gameState.monster.applyDamage(playerDamage);
                 
             if (gameState.firstRound) {
                 results.innerHTML = "<p>You are fighting a " + gameState.monster.getName() + " with a " + gameState.player.getWeapon().name + "</p><br/>"
