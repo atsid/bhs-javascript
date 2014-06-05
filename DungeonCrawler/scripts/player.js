@@ -6,7 +6,8 @@ function Player(name, position) {
         experience: 0,
         level: 1,
         equipment: [],
-        weapon: undefined
+        weapon: undefined,
+        inCombat: false
     };
 
     /**
@@ -94,22 +95,35 @@ function Player(name, position) {
      */
     this.combat = function(monster) {
         // TODO : Resolve combat.
+        // IDEAS:
+        // Resolve combat in a similar way to the previous monster fight game
+        // Run a calculation that figures out if the monster or player will win
+        // Something else...?
+
         var combat = document.getElementById('combat');
         var button = document.getElementById('fight');
         var close = function() {
+            alert('TODO: Implement combat!');
             combat.className = "combatHidden";
-        }
+            playerInfo.inCombat = false;
+        };
+
+        playerInfo.inCombat = true;
 
         button.onclick = close;
         combat.className = "combatShow";
-
     }
 
     this._moveTo = function(map, position) {
-        if (map.canMoveTo(this, position)) {
-            map.onMovingTo(this, position);
-            playerInfo.position = position;
-            map.onMoved(this, position);
+        if (playerInfo.inCombat) {
+            alert('You are in combat!!');
+        }
+        else {
+            if (map.canMoveTo(this, position)) {
+                map.onMovingTo(this, position);
+                playerInfo.position = position;
+                map.onMoved(this, position);
+            }
         }
     };
 

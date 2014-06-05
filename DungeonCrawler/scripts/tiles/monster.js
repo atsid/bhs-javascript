@@ -21,8 +21,8 @@ function MonsterTile(monster) {
      */
     this.onMovingTo = function(agent) {
         if (agent.isPlayerAgent()) {
-            console.log("COMBAT with", monster.getName());
             if (available) {
+                console.log("COMBAT with", monster.getName());
                 agent.combat(monster);
             }
 

@@ -1,0 +1,4 @@
+// Possible game enhancements:
+// * Level up the player after fighting
+// * Give the player a weapon
+// * Add more Levels

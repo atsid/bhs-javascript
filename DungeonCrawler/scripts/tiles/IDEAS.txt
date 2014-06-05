@@ -4,4 +4,7 @@
 //   * Chest Tiles may contain either gold, equipment, or traps
 //   * Door tiles that require keys
 //   * Door tiles that may be lock-picked
+//   * Health Tiles
+//   * Equipment Tiles
+//   * Stair Tiles that take the player down a level
 //   * Environment descriptions when player enters a tile
