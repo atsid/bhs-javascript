@@ -40,7 +40,7 @@ function EmptyTile() {
     }
 
     this.draw = function() {
-        return "<span class='tile'> </span>";
+        return "<span class='tile'>.</span>";
     }
 }
 

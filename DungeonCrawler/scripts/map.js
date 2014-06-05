@@ -38,7 +38,7 @@ function MapFloor(grid) {
         var result = "";
         for (var i = 0; i < tiles.length; i++) {
             for (var j = 0; j < tiles[i].length; j++) {
-                var agent = gameState.agentAtPosition(floor, i,j);
+                var agent = gameState.agentAtPosition(floor, j, i);
                 var tile = tiles[i][j];
                 if (agent) {
                     result += agent.draw();
