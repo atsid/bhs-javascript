@@ -4,12 +4,13 @@
 //   * Chest Tiles may contain either gold, equipment, or traps
 //   * Door tiles that require keys
 //   * Door tiles that may be lock-picked
+//   * Environment descriptions when player enters a tile
 
 /**
  * Empty Tile Class
  * @constructor
  */
-function WallTile() {
+function EmptyTile() {
     /**
      * Determines if the given agent can pass through the tile
      * @param agent The agent interacting with the tile
@@ -37,6 +38,10 @@ function WallTile() {
      */
     this.trigger = function(agent, game) {
         // Empty Tiles do nothing
+    }
+
+    this.draw = function() {
+        return "<span class='tile'> </span>";
     }
 }
 
@@ -73,6 +78,10 @@ function WallTile() {
     this.trigger = function(agent, game) {
         // Walls do nothing
     }
+
+    this.draw = function() {
+        return "<span class='tile'>#</span>";
+    }
 }
 
 /**
@@ -107,6 +116,10 @@ function GoldTile(value) {
      */
     this.trigger = function(agent, game) {
         agent.acceptGold(value);
+    }
+
+    this.draw = function() {
+        return "<span class='tile'>G</span>";
     }
 }
 
@@ -143,6 +156,10 @@ function EquipmentTile(value) {
     this.trigger = function(agent, game) {
         agent.acceptEquipment(value);
     }
+
+    this.draw = function() {
+        return "<span class='tile'>E</span>";
+    }
 }
 
 /**
@@ -177,5 +194,9 @@ function MonsterTile(monster) {
      */
     this.trigger = function(agent, game) {
         agent.combat(monster);
+    }
+
+    this.draw = function() {
+        return "<span class='tile'>M</span>";
     }
 }

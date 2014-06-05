@@ -28,6 +28,20 @@ function Player(name, position) {
     }
 
     /**
+     * Determines if the character is located at the given position
+     * @param level
+     * @param x
+     * @param y
+     * @returns {boolean}
+     */
+    this.isLocatedAt = function(floor, x, y) {
+        var pos = playerInfo.position;
+        return pos.floor === floor &&
+               pos.x === x &&
+               pos.y === y;
+    }
+
+    /**
      * returns the name of the player
      *
      * @returns {*}
@@ -52,7 +66,7 @@ function Player(name, position) {
      */
     this.acceptGold = function(value) {
         if (value && value !== NaN) {
-            this.playerInfo.gold += value;
+            playerInfo.gold += value;
         }
     }
 
@@ -62,7 +76,7 @@ function Player(name, position) {
      * @param value
      */
     this.acceptEquipment = function(value) {
-        this.playerInfo.equipment.push(value);
+        playerInfo.equipment.push(value);
     }
 
     /**
