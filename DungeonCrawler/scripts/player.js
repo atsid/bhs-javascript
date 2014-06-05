@@ -21,7 +21,7 @@ function Player(name, position) {
         return playerInfo.name;
     }
     
-    this.getGold() {
+    this.getGold = function() {
         return playerInfo.gold;
     }
     
