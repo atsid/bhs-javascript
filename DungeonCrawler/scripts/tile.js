@@ -77,6 +77,8 @@ function WallTile() {
  * @constructor
  */
 function GoldTile(value) {
+    var available = true;
+
     /**
      * Determines if the given agent can pass through the tile
      * @param agent The agent interacting with the tile
@@ -98,13 +100,17 @@ function GoldTile(value) {
      * @param agent
      */
     this.onMoved = function(agent) {
-        if (agent.isPlayerAgent()) {
+        if (available && agent.isPlayerAgent()) {
             agent.acceptGold(value);
+            available = false;
         }
     }
 
     this.draw = function() {
-        return "<span class='tile'>G</span>";
+        if (available)
+            return "<span class='gold'>G</span>";
+        else
+            return "<span class='tile'>.</span>";
     }
 }
 
