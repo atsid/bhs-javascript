@@ -6,7 +6,11 @@
 //   * Ladder Tiles to go up and down levels
 
 function pickRandomMonster() {
-    return {};
+    var monsters = new Monsters();
+    var names = monsters.getMonsterNames();
+    var index = Math.ceil(Math.random() * 1000);
+
+    return monsters.getMonsterByName(names[index % names.length]);
 }
 
 function makeTile(symbol) {

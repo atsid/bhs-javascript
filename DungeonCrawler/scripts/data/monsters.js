@@ -42,15 +42,13 @@ function Monsters() {
     }];
 
     this.getMonsterByName = function(name) {
-        var monster = {};
-
         for(var index = 0; index < monsters.length; index++) {
             if (monsters[index].name === name) {
-                return monsters[index];
+                return new Monster(monsters[index]);
             }
         }
 
-        return monster;
+        throw new Error("Could not find monster with name " + name);
     }
 
     this.getMonsterNames = function() {
