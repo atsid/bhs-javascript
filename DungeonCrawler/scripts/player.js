@@ -35,7 +35,7 @@ function Player(name, position) {
      * @returns {boolean}
      */
     this.isLocatedAt = function(floor, x, y) {
-        var pos = playerInfo.position;
+        var pos = this.getPosition();
         return pos.floor === floor &&
                pos.x === x &&
                pos.y === y;
@@ -99,24 +99,28 @@ function Player(name, position) {
     this._moveTo = function(map, position) {
         console.log("Trying to move to new position", position);
         if (map.canMoveTo(this, position)) {
-            console.log("Successfully moved to new position");
-            this.position = position;
+            playerInfo.position = position;
+            console.log("Successfully moved to new position", this.getPosition());
         }
     };
 
     this.moveUp = function(map) {
+        var position = this.getPosition();
         this._moveTo(map, { floor: position.floor, x: position.x, y: position.y - 1 });
     }
 
     this.moveDown = function(map) {
+        var position = this.getPosition();
         this._moveTo(map, { floor: position.floor, x: position.x, y: position.y + 1 });
     }
 
     this.moveLeft = function(map) {
+        var position = this.getPosition();
         this._moveTo(map, { floor: position.floor, x: position.x - 1, y: position.y });
     }
 
     this.moveRight = function(map) {
+        var position = this.getPosition();
         this._moveTo(map, { floor: position.floor, x: position.x + 1, y: position.y });
     }
 }
