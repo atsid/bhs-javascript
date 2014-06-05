@@ -62,7 +62,7 @@ function MapFloor(grid) {
     this.isValidPosition = function(position) {
         var x = position.x;
         var y = position.y;
-        if (y <= 0 || y >= tiles.length) {
+        if (y < 0 || y >= tiles.length) {
             return false;
         }
         row = tiles[y];
