@@ -6,7 +6,8 @@
     var mapDiv = document.getElementById("map");
     var goldScore = document.getElementById("goldScore");
 
-    var map = [['#', '#', '#', '#', '.', '.', '.', '.', '.', '.'],
+    var map = [
+        ['#', '#', '#', '#', '.', '.', '.', '.', '.', '.'],
         ['#', '.', '.', '#', '.', '.', 'G', '.', '.', '.'],
         ['#', '.', '.', '#', '.', '.', '.', '.', '#', '.'],
         ['#', '.', '.', '.', '.', '.', '.', '.', '#', '.'],
@@ -60,31 +61,31 @@
         player1.y = yPos;
     }
 
-    function movePlayer1(xPos, yPos) {
+    function isPositionValid(xPos, yPos) {
+        var yIsValid = yPos >= 0 && yPos < map.length;
+        var xIsValid = xPos >= 0 && xPos < map[yPos].length;
+        return xIsValid && yIsValid;
+    }
 
-        // make sure the new Y position is inside of the map.
-        // We can do this by making sure yPos is greater or equal to 0 and less than the map's length.
-        if (yPos >= 0 && yPos < map.length) {
+    function movePlayer(xPos, yPos) {
+        // make sure the new position is inside of the map.
+        if (isPositionValid(xPos, yPos)) {
+            var tileChar = map[yPos][xPos];
+            // And finally we need to make sure the player doesn't walk through a wall.
+            // We can prevent that by checking if the letter at the new position is a '#' or not.
+            // If it is a wall, we'll just do nothing. If it isn't a wall, then we'll update
+            // the player's position and redraw the map.
+            if (tileChar !== "#") {
+                if (tileChar === "G") {
+                    getGold(xPos, yPos)
+                }
+                // Add code here that will call the getGold(xPos, yPos) funcion
+                // if the tileChar is equal to G
 
-            // make sure the new X position is inside of the map.
-            if (xPos >= 0 && xPos < map[yPos].length) {
-
-                var tileChar = map[yPos][xPos];
-                // And finally we need to make sure the player doesn't walk through a wall.
-                // We can prevent that by checking if the letter at the new position is a '#' or not.
-                // If it is a wall, we'll just do nothing. If it isn't a wall, then we'll update
-                // the player's position and redraw the map.
-                if (tileChar !== "#") {
-                    
-                    // Add code here that will call the getGold(xPos, yPos) funcion
-                    // if the tileChar is equal to G
-
-
-                    doMovement(xPos, yPos);
-                    drawWorld();
-                } // end wall check
-            } // end x check
-        } // end y check
+                doMovement(xPos, yPos);
+                drawWorld();
+            } // end wall check
+        }
     }
 
     // When the user presses an arrow key on the keyboard, we want to move the player.
@@ -97,7 +98,7 @@
     document.body.onkeydown = function (event) {
         var newX = player1.x,
             newY = player1.y;
-console.log("onb key down");
+        console.log("onb key down");
         if (event.keyCode === 37) {        // left arrow
             newX += -1;
         } else if (event.keyCode === 38) { // up arrow
@@ -108,7 +109,7 @@ console.log("onb key down");
             newY += 1;
         }
 
-        movePlayer1(newX, newY);
-    } // end onkeydown
+        movePlayer(newX, newY);
+    }
 
     drawWorld();
