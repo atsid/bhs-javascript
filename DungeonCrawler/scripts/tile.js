@@ -175,6 +175,7 @@ function MonsterTile(monster) {
         if (agent.isPlayerAgent()) {
             console.log("COMBAT with", monster.getName());
             agent.combat(monster);
+            available = false;
         }
     }
 
