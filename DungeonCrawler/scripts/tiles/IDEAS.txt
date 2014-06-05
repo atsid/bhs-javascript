@@ -1,0 +1,7 @@
+// Possible Tasks:
+//   * Ghostly monsters and Vampires can pass through walls
+//   * Trap tiles
+//   * Chest Tiles may contain either gold, equipment, or traps
+//   * Door tiles that require keys
+//   * Door tiles that may be lock-picked
+//   * Environment descriptions when player enters a tile
