@@ -14,10 +14,9 @@ function EmptyTile() {
     /**
      * Determines if the given agent can pass through the tile
      * @param agent The agent interacting with the tile
-     * @param game The game state
      * @returns {boolean}
      */
-    this.canPassThrough = function(agent, game) {
+    this.canPassThrough = function(agent) {
         return true;
     }
 
@@ -53,10 +52,9 @@ function WallTile() {
     /**
      * Determines if the given agent can pass through the tile
      * @param agent The agent interacting with the tile
-     * @param game The game state
      * @returns {boolean}
      */
-    this.canPassThrough = function(agent, game) {
+    this.canPassThrough = function(agent) {
         return false;
     }
 
@@ -92,10 +90,9 @@ function GoldTile(value) {
     /**
      * Determines if the given agent can pass through the tile
      * @param agent The agent interacting with the tile
-     * @param game The game state
      * @returns {boolean}
      */
-    this.canPassThrough = function(agent, game) {
+    this.canPassThrough = function(agent) {
         return true;
     }
 
@@ -131,10 +128,9 @@ function EquipmentTile(value) {
     /**
      * Determines if the given agent can pass through the tile
      * @param agent The agent interacting with the tile
-     * @param game The game state
      * @returns {boolean}
      */
-    this.canPassThrough = function(agent, game) {
+    this.canPassThrough = function(agent) {
         return true;
     }
 
@@ -151,9 +147,8 @@ function EquipmentTile(value) {
     /**
      * Triggers an interaction with the tile
      * @param agent The agent interacting with the tile
-     * @param game The game state
      */
-    this.trigger = function(agent, game) {
+    this.trigger = function(agent) {
         agent.acceptEquipment(value);
     }
 
@@ -170,10 +165,9 @@ function MonsterTile(monster) {
     /**
      * Determines if the given agent can pass through the tile
      * @param agent The agent interacting with the tile
-     * @param game The game state
      * @returns {boolean}
      */
-    this.canPassThrough = function(agent, game) {
+    this.canPassThrough = function(agent) {
         return false;
     }
 

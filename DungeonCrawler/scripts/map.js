@@ -34,11 +34,11 @@ function MapFloor(grid) {
     /**
      * Draws the current map level
      */
-    this.draw = function(gameState) {
+    this.draw = function(floor, gameState) {
         var result = "";
         for (var i = 0; i < tiles.length; i++) {
             for (var j = 0; j < tiles[i].length; j++) {
-                var agent = gameState.agentAtPosition(i,j);
+                var agent = gameState.agentAtPosition(floor, i,j);
                 var tile = tiles[i][j];
                 if (agent) {
                     result += agent.draw();
@@ -50,6 +50,20 @@ function MapFloor(grid) {
         }
         return result;
     }
+
+    this.getTile = function (x, y) {
+        return tiles[y][x];
+    }
+
+    this.isValidPosition = function(position) {
+        var x = position.x;
+        var y = position.y;
+        if (y <= 0 || y >= tiles.length) {
+            return false;
+        }
+        row = tiles[y];
+        return x >= 0 && x < row.length;
+    }
 }
 
 function Map(levelGrid, doors, items) {
@@ -57,20 +71,35 @@ function Map(levelGrid, doors, items) {
     for (var i = 0; i < levelGrid.length; i++)  {
         floors.push(new MapFloor(levelGrid[i]));
     }
-    var currentFloor = 0;
 
     var map = {
         floors: floors,
         doors: doors,
         items: items,
-        current: 0 // the current map (floor) to show.
+        floor: 0 // the current map (floor) to show.
     };
+
+    this.isValidPosition = function(position) {
+        var floor = position.floor;
+        if (floor < 0 || floor >= floors.length) {
+            return false;
+        }
+        var currentFloor = floors[floor];
+        return currentFloor.isValidPosition(position);
+    }
+
+    this.canMoveTo = function(agent, position) {
+        if (!this.isValidPosition(position)) {
+            return false;
+        }
+        var tile = floors[map.floor].getTile(position.x, position.y);
+        return tile.canPassThrough(agent);
+    }
     
-    this.draw = function(gameState, element) {
-        element.innerHTML = floors[currentFloor].draw();
+    this.draw = function(gameState) {
+        return floors[map.floor].draw(map.floor, gameState);
     }
     
     this.updateCharacters = function(characters) {
-        
     }
 }

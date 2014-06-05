@@ -51,6 +51,14 @@ function Player(name, position) {
     }
 
     /**
+     * Draws the player
+     * @returns {string}
+     */
+    this.draw = function() {
+        return "<span class='player'>O</span>";
+    }
+
+    /**
      * returns the gold for the player
      *
      * @returns {number}
@@ -86,5 +94,29 @@ function Player(name, position) {
      */
     this.combat = function(monster) {
         // TODO : Resolve combat.
+    }
+
+    this._moveTo = function(map, position) {
+        console.log("Trying to move to new position", position);
+        if (map.canMoveTo(this, position)) {
+            console.log("Successfully moved to new position");
+            this.position = position;
+        }
+    };
+
+    this.moveUp = function(map) {
+        this._moveTo(map, { floor: position.floor, x: position.x, y: position.y - 1 });
+    }
+
+    this.moveDown = function(map) {
+        this._moveTo(map, { floor: position.floor, x: position.x, y: position.y + 1 });
+    }
+
+    this.moveLeft = function(map) {
+        this._moveTo(map, { floor: position.floor, x: position.x - 1, y: position.y });
+    }
+
+    this.moveRight = function(map) {
+        this._moveTo(map, { floor: position.floor, x: position.x + 1, y: position.y });
     }
 }
