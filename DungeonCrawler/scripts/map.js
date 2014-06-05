@@ -83,6 +83,10 @@ function Map(levelGrid, doors, items) {
         floor: 0 // the current map (floor) to show.
     };
 
+    var tileAtPosition = function(position) {
+        return floors[map.floor].getTile(position.x, position.y);
+    }
+
     this.isValidPosition = function(position) {
         var floor = position.floor;
         if (floor < 0 || floor >= floors.length) {
@@ -96,12 +100,32 @@ function Map(levelGrid, doors, items) {
         if (!this.isValidPosition(position)) {
             return false;
         }
-        var tile = floors[map.floor].getTile(position.x, position.y);
+        var tile = tileAtPosition(position);
         return tile.canPassThrough(agent);
     }
     
     this.draw = function(gameState) {
         return floors[map.floor].draw(map.floor, gameState);
+    }
+
+    /**
+     * Event handler before an agent move into the designated area
+     * @param agent
+     * @param position
+     */
+    this.onMovingTo = function(agent, position) {
+        var tile = tileAtPosition(position);
+        tile.onMovingTo(agent);
+    }
+
+    /**
+     * Event handler before after an agent move into the designated area
+     * @param agent
+     * @param position
+     */
+    this.onMoved = function(agent, position) {
+        var tile = tileAtPosition(position);
+        tile.onMoved(agent);
     }
     
     this.updateCharacters = function(characters) {

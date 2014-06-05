@@ -97,10 +97,10 @@ function Player(name, position) {
     }
 
     this._moveTo = function(map, position) {
-        console.log("Trying to move to new position", position);
         if (map.canMoveTo(this, position)) {
+            map.onMovingTo(this, position);
             playerInfo.position = position;
-            console.log("Successfully moved to new position", this.getPosition());
+            map.onMoved(this, position);
         }
     };
 

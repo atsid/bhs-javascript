@@ -21,22 +21,17 @@ function EmptyTile() {
     }
 
     /**
-     * Determines if the given agent triggers an event when passing over this tile
-     * @param agent The agent interacting with the tile
-     * @param game The game state
-     * @returns {boolean}
+     * Event handler before after an agent moves into the tile
+     * @param agent
      */
-    this.isEventTriggered = function(agent, game) {
-        return false;
+    this.onMovingTo = function(agent) {
     }
 
     /**
-     * Triggers an interaction with the tile
-     * @param agent The agent interacting with the tile
-     * @param game The game state
+     * Event handler before after an agent moves into the tile
+     * @param agent
      */
-    this.trigger = function(agent, game) {
-        // Empty Tiles do nothing
+    this.onMoved = function(agent) {
     }
 
     this.draw = function() {
@@ -59,22 +54,17 @@ function WallTile() {
     }
 
     /**
-     * Determines if the given agent triggers an event when passing over this tile
-     * @param agent The agent interacting with the tile
-     * @param game The game state
-     * @returns {boolean}
+     * Event handler before after an agent moves into the tile
+     * @param agent
      */
-    this.isEventTriggered = function(agent, game) {
-        return false;
+    this.onMovingTo = function(agent) {
     }
 
     /**
-     * Triggers an interaction with the tile
-     * @param agent The agent interacting with the tile
-     * @param game The game state
+     * Event handler before after an agent moves into the tile
+     * @param agent
      */
-    this.trigger = function(agent, game) {
-        // Walls do nothing
+    this.onMoved = function(agent) {
     }
 
     this.draw = function() {
@@ -97,22 +87,20 @@ function GoldTile(value) {
     }
 
     /**
-     * Determines if the given agent triggers an event when passing over this tile
-     * @param agent The agent interacting with the tile
-     * @param game The game state
-     * @returns {boolean}
+     * Event handler before after an agent moves into the tile
+     * @param agent
      */
-    this.isEventTriggered = function(agent, game) {
-        return agent.isPlayerAgent();
+    this.onMovingTo = function(agent) {
     }
 
     /**
-     * Triggers an interaction with the tile
-     * @param agent The agent interacting with the tile
-     * @param game The game state
+     * Event handler before after an agent moves into the tile
+     * @param agent
      */
-    this.trigger = function(agent, game) {
-        agent.acceptGold(value);
+    this.onMoved = function(agent) {
+        if (agent.isPlayerAgent()) {
+            agent.acceptGold(value);
+        }
     }
 
     this.draw = function() {
@@ -135,21 +123,20 @@ function EquipmentTile(value) {
     }
 
     /**
-     * Determines if the given agent triggers an event when passing over this tile
-     * @param agent The agent interacting with the tile
-     * @param game The game state
-     * @returns {boolean}
+     * Event handler before after an agent moves into the tile
+     * @param agent
      */
-    this.isEventTriggered = function(agent, game) {
-        return agent.isPlayerAgent();
+    this.onMovingTo = function(agent) {
     }
 
     /**
-     * Triggers an interaction with the tile
-     * @param agent The agent interacting with the tile
+     * Event handler before after an agent moves into the tile
+     * @param agent
      */
-    this.trigger = function(agent) {
-        agent.acceptEquipment(value);
+    this.onMoved = function(agent) {
+        if (agent.isPlayerAgent()) {
+            agent.acceptEquipment(value);
+        }
     }
 
     this.draw = function() {
@@ -172,23 +159,25 @@ function MonsterTile(monster) {
     }
 
     /**
-     * Determines if the given agent triggers an event when passing over this tile
-     * @param agent The agent interacting with the tile
-     * @param game The game state
-     * @returns {boolean}
+     * Event handler before after an agent moves into the tile
+     * @param agent
+     * @param position
      */
-    this.isEventTriggered = function(agent, game) {
-        return agent.isPlayerAgent();
+    this.onMovingTo = function(agent) {
+        if (agent.isPlayerAgent()) {
+            agent.combat(monster);
+        }
     }
 
     /**
-     * Triggers an interaction with the tile
-     * @param agent The agent interacting with the tile
-     * @param game The game state
+     * Event handler before after an agent moves into the tile
+     * @param agent
+     * @param position
      */
-    this.trigger = function(agent, game) {
-        agent.combat(monster);
+    this.onMoved = function(agent) {
+
     }
+
 
     this.draw = function() {
         return "<span class='tile'>M</span>";
