@@ -22,7 +22,10 @@ function MonsterTile(monster) {
     this.onMovingTo = function(agent) {
         if (agent.isPlayerAgent()) {
             console.log("COMBAT with", monster.getName());
-            agent.combat(monster);
+            if (available) {
+                agent.combat(monster);
+            }
+
             available = false;
         }
     }

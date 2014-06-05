@@ -94,6 +94,15 @@ function Player(name, position) {
      */
     this.combat = function(monster) {
         // TODO : Resolve combat.
+        var combat = document.getElementById('combat');
+        var button = document.getElementById('fight');
+        var close = function() {
+            combat.className = "combatHidden";
+        }
+
+        button.onclick = close;
+        combat.className = "combatShow";
+
     }
 
     this._moveTo = function(map, position) {
