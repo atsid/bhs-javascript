@@ -1,37 +1,45 @@
-        body {
-            font-family: monospace;
-        }
+body {
+    font-family: monospace;
+}
 
-        span {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            font-size: 16px;
-            text-align: center;
-            line-height: 16px;
-        }
+span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 16px;
+}
 
-        .player {
-            background: orange;
-        }
+.player {
+    background: orange;
+}
 
-        .tile {
-            color: black;
-        }
+.tile {
+    color: black;
+}
 
-        .score {
-            font-weight:bold;
-            margin-bottom: 5px;
-        }
+.score {
+    font-weight:bold;
+    margin-bottom: 5px;
+}
 
-        .gold {
-            color: gold;
-        }
+.gold {
+    color: gold;
+}
 
-        .monster {
-            color: red;
-        }
+.monster {
+    color: red;
+}
 
-        .goldScore {
-            color: gold;
-        }
+.goldScore {
+    color: gold;
+}
+
+.combatHidden {
+    display: none;
+}
+
+.combatShow {
+    display: inline-block;
+}
