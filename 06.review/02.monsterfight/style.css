@@ -1,0 +1,35 @@
+table {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background-color: #000;
+    color: #eee;
+}
+td, th {
+    text-align: center;
+    width: 150px;
+}
+
+#results {
+    font-size: 15px;
+}
+
+#viewMonster, #viewWeapon {
+    font-size: 20px;
+    font-family: Impact;
+}
+#viewMonster {
+    color: #d33;
+}
+#viewWeapon {
+    color: #2c2;
+}
+#versus {
+    width: 42px;
+    height: 28px;
+    background-image: url(./img/vs.png);
+    background-size: 42px 28px;
+    background-repeat: no-repeat;
+}
+#versus2 {
+    width: 42px;
+}

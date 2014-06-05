@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            @import url(style.css);
+        </style>
+        <title>
+            Monster Fight
+        </title>
+    </head>
+    <body>
+        <form id="thefight" action="javascript:doFight()">
+
+            <h1>Monster Fight</h1>
+            <table id="viewStats">
+                <tr id="headers">
+                    <th id="viewMonster">??</th>
+                    <th id="versus"></th>
+                    <th id="viewWeapon">??</th>
+                </tr>
+                <tr id="details">
+                    <td id="viewMonsterDetails"></td>
+                    <td id="versus2"></td>
+                    <td id="viewWeaponDetails"></td>
+                </tr>
+            </table>
+
+            <div id="choices">
+                <select name="monsters" id="monsters" onchange="selectMonster()"></select>
+                <select id="weapons" name="weapons" onchange="selectWeapon()"></select>
+                <button name="fight" value="submit">Fight!</button>
+            </div>
+        </form>
+        <div id="results"></div>
+        <div><button name="reset" id="reset" onclick="reset()" style="display: none;">Reset</button></div>
+
+        <script src="../../shared.js"></script>
+        <script src="script/script.js"></script>
+        <script src="script/data/monsters.js"></script>
+        <script src="script/data/weapons.js"></script>
+        <script src="script/characters/monster.js"></script>
+        <script src="script/characters/player.js"></script>
+        <script src="script/game.js"></script>
+        <script src="script/util.js"></script>
+        <script>
+            {
+                init();
+            }
+        </script>
+    </body>
+</html>
