@@ -8,6 +8,10 @@ function Player(name, position) {
         equipment: [],
         weapon: undefined
     };
+
+    this.isPlayerAgent = function() {
+        return true;
+    }
     
     this.getPosition = function() {
         return playerInfo.position;
