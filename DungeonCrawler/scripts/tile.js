@@ -155,13 +155,15 @@ function EquipmentTile(value) {
  * @constructor
  */
 function MonsterTile(monster) {
+    var available = true;
+
     /**
      * Determines if the given agent can pass through the tile
      * @param agent The agent interacting with the tile
      * @returns {boolean}
      */
     this.canPassThrough = function(agent) {
-        return false;
+        return true;
     }
 
     /**
@@ -171,6 +173,7 @@ function MonsterTile(monster) {
      */
     this.onMovingTo = function(agent) {
         if (agent.isPlayerAgent()) {
+            console.log("COMBAT with", monster.getName());
             agent.combat(monster);
         }
     }
@@ -186,6 +189,10 @@ function MonsterTile(monster) {
 
 
     this.draw = function() {
-        return "<span class='tile'>M</span>";
+        if (available)
+            return "<span class='monster'>M</span>";
+        else
+            return "<span class='tile'>.</span>";
+
     }
 }
