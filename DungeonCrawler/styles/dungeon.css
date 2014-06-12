@@ -42,6 +42,7 @@ span {
 
 .combatShow {
     display: inline-block;
+    width: 90%;
 }
 
 .combatSpan {

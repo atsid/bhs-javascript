@@ -7,6 +7,7 @@
  */
 var mapDiv = document.getElementById("map");
 var goldScore = document.getElementById("goldScore");
+var healthPoints = document.getElementById("healthPoints");
 
 /*
  * Logical Game State
@@ -37,6 +38,8 @@ var map = new Map(floors);
 function drawWorld() {
     mapDiv.innerHTML = map.draw(gameState, mapDiv);
     goldScore.innerHTML = player1.getGold();
+    healthPoints.innerHTML = player1.getHealth();
+
 }
 
 // When the user presses an arrow key on the keyboard, we want to move the player.
@@ -49,16 +52,16 @@ function drawWorld() {
 document.body.onkeydown = function (event) {
     if (event.keyCode === 37) {        // left arrow
         console.log("Moving Left");
-        player1.moveLeft(map);
+        player1.moveLeft(map, drawWorld);
     } else if (event.keyCode === 38) { // up arrow
         console.log("Moving Up");
-        player1.moveUp(map);
+        player1.moveUp(map, drawWorld);
     } else if (event.keyCode === 39) { // right arrow
         console.log("Moving Right");
-        player1.moveRight(map);
+        player1.moveRight(map, drawWorld);
     } else if (event.keyCode === 40) { // down arrow
         console.log("Moving Down");
-        player1.moveDown(map);
+        player1.moveDown(map, drawWorld);
     }
     drawWorld();
 }

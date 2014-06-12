@@ -19,14 +19,18 @@ function MonsterTile(monster) {
      * @param agent
      * @param position
      */
-    this.onMovingTo = function(agent) {
+    this.onMovingTo = function(agent, callback) {
+        var combatComplete = function() {
+            available = false;
+            callback();
+        }
         if (agent.isPlayerAgent()) {
             if (available) {
                 console.log("COMBAT with", monster.getName());
-                agent.combat(monster);
+                agent.combat(monster, combatComplete);
+            } else {
+                callback();
             }
-
-            available = false;
         }
     }
 

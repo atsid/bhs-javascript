@@ -6,12 +6,16 @@
     <link rel="stylesheet" type="text/css" href="styles/dungeon.css" />
 </head>
 <body>
-<div class="score">Your Gold: <span class="goldScore" id="goldScore">0</span></div>
+<div class="score">
+    Your Gold: <span class="goldScore" id="goldScore">0</span>
+    Health: <span class="health" id="healthPoints">0</span>
+</div>
 <div id="map"></div>
 <div id="combat" class="combatHidden">
-    <span class="combatSpan">Show combat here...</span>
-    <br/>
     <button id="fight">fight</button>
+    <br/>
+    <span id="combatInfo" class="combatSpan">Show combat here...</span>
+    <br/>
 </div>
 
 <script src="scripts/data/monsters.js"></script>

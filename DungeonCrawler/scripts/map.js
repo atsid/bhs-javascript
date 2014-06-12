@@ -113,9 +113,9 @@ function Map(levelGrid, doors, items) {
      * @param agent
      * @param position
      */
-    this.onMovingTo = function(agent, position) {
+    this.onMovingTo = function(agent, position, callback) {
         var tile = tileAtPosition(position);
-        tile.onMovingTo(agent);
+        tile.onMovingTo(agent, callback);
     }
 
     /**

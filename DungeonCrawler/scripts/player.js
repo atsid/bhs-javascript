@@ -3,10 +3,11 @@ function Player(name, position) {
         name: name,
         position: position,
         gold: 0,
+        health: 100,
         experience: 0,
         level: 1,
         equipment: [],
-        weapon: undefined,
+        weapon: 10,
         inCombat: false
     };
 
@@ -51,6 +52,10 @@ function Player(name, position) {
         return playerInfo.name;
     }
 
+    this.getHealth = function() {
+        return playerInfo.health;
+    }
+
     /**
      * Draws the player
      * @returns {string}
@@ -93,7 +98,7 @@ function Player(name, position) {
      *
      * @param monster
      */
-    this.combat = function(monster) {
+    this.combat = function(monster, callback) {
         // TODO : Resolve combat.
         // IDEAS:
         // Resolve combat in a similar way to the previous monster fight game
@@ -101,49 +106,63 @@ function Player(name, position) {
         // Something else...?
 
         var combat = document.getElementById('combat');
+        var combatInfo = document.getElementById('combatInfo');
         var button = document.getElementById('fight');
         var close = function() {
-            alert('TODO: Implement combat!');
-            combat.className = "combatHidden";
-            playerInfo.inCombat = false;
+            var damage = monster.getDamage();
+            playerInfo.health -= damage;
+            monster.applyDamage(playerInfo.weapon);
+            combatInfo.innerHTML = combatInfo.innerHTML + "<span class='combatSpan'>" + monster.getName() + " did " + damage + " damage.</span><br/>";
+            combatInfo.innerHTML = combatInfo.innerHTML + "<span class='combatSpan'> You did " + playerInfo.weapon + " damage! </span><br/>";
+
+            if (monster.getHealth() <= 0) {
+                combat.className = "combatHidden";
+                playerInfo.inCombat = false;
+                callback();
+            }
         };
 
+        combatInfo.innerHTML = "";
         playerInfo.inCombat = true;
 
         button.onclick = close;
         combat.className = "combatShow";
     }
 
-    this._moveTo = function(map, position) {
+    this._moveTo = function(map, position, callback) {
+        var agent = this;
         if (playerInfo.inCombat) {
             alert('You are in combat!!');
         }
         else {
             if (map.canMoveTo(this, position)) {
-                map.onMovingTo(this, position);
-                playerInfo.position = position;
-                map.onMoved(this, position);
+                var completeMove = function() {
+                    playerInfo.position = position;
+                    map.onMoved(agent, position);
+                    callback();
+                };
+                map.onMovingTo(this, position, completeMove);
             }
         }
     };
 
-    this.moveUp = function(map) {
+    this.moveUp = function(map, callback) {
         var position = this.getPosition();
-        this._moveTo(map, { floor: position.floor, x: position.x, y: position.y - 1 });
+        this._moveTo(map, { floor: position.floor, x: position.x, y: position.y - 1 }, callback);
     }
 
-    this.moveDown = function(map) {
+    this.moveDown = function(map, callback) {
         var position = this.getPosition();
-        this._moveTo(map, { floor: position.floor, x: position.x, y: position.y + 1 });
+        this._moveTo(map, { floor: position.floor, x: position.x, y: position.y + 1 }, callback);
     }
 
-    this.moveLeft = function(map) {
+    this.moveLeft = function(map, callback) {
         var position = this.getPosition();
-        this._moveTo(map, { floor: position.floor, x: position.x - 1, y: position.y });
+        this._moveTo(map, { floor: position.floor, x: position.x - 1, y: position.y }, callback);
     }
 
-    this.moveRight = function(map) {
+    this.moveRight = function(map, callback) {
         var position = this.getPosition();
-        this._moveTo(map, { floor: position.floor, x: position.x + 1, y: position.y });
+        this._moveTo(map, { floor: position.floor, x: position.x + 1, y: position.y }, callback);
     }
 }

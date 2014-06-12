@@ -16,7 +16,8 @@ function EquipmentTile(value) {
      * Event handler before after an agent moves into the tile
      * @param agent
      */
-    this.onMovingTo = function(agent) {
+    this.onMovingTo = function(agent, callback) {
+        callback();
     }
 
     /**
