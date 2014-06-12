@@ -27,7 +27,8 @@ function MonsterTile(monster) {
         if (agent.isPlayerAgent()) {
             if (available) {
                 console.log("COMBAT with", monster.getName());
-                agent.combat(monster, combatComplete);
+                agent.combat(monster);
+                combatComplete();
             } else {
                 callback();
             }

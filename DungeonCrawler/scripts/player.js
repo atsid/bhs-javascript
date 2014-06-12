@@ -98,7 +98,7 @@ function Player(name, position) {
      *
      * @param monster
      */
-    this.combat = function(monster, callback) {
+    this.combat = function(monster) {
         // TODO : Resolve combat.
         // IDEAS:
         // Resolve combat in a similar way to the previous monster fight game
@@ -118,7 +118,7 @@ function Player(name, position) {
             if (monster.getHealth() <= 0) {
                 combat.className = "combatHidden";
                 playerInfo.inCombat = false;
-                callback();
+                //callback();
             }
         };
 
